@@ -4,10 +4,14 @@ def select_cards(possible_cards, hand)
     print "Do you want to pick up #{current_card}?"
     answer = gets.chomp
     if answer.downcase == 'y'
-      hand << current_card
+      if hand.count < 3
+        hand << current_card
+      elsif hand.count == 3
+        return hand
+      end
     end
-    return hand
   end
+  return hand
 
 end
 
